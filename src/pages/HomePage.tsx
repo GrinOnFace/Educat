@@ -32,10 +32,10 @@ const HomePage = () => {
         </Typography>
 
         <Box sx={{ display: 'flex', gap: 2, justifyContent: 'center' }}>
-          <Button component={Link} href='/login' variant='contained' color='primary' size='large'>
+          <Button component={Link} href='/#/login' variant='contained' color='primary' size='large'>
             Войти
           </Button>
-          <Button component={Link} href='/register' variant='outlined' color='primary' size='large'>
+          <Button component={Link} href='/#/register' variant='outlined' color='primary' size='large'>
             Зарегистрироваться
           </Button>
         </Box>
