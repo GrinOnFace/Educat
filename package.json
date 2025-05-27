@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://[ваш-github-username].github.io/[название-репозитория]",
+  "homepage": "https://GrinOnFace.github.io/Educat",
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
