@@ -21,10 +21,10 @@ const PublicHeader = () => {
       <Logo />
 
       <Box>
-        <Button href='/#/login' color={isLoginPage ? 'primary' : 'inherit'} sx={{ mr: 2 }}>
+        <Button href='/login' color={isLoginPage ? 'primary' : 'inherit'} sx={{ mr: 2 }}>
           Войти
         </Button>
-        <Button href='/#/register' color={!isLoginPage ? 'primary' : 'inherit'}>
+        <Button href='/register' color={!isLoginPage ? 'primary' : 'inherit'}>
           Регистрация
         </Button>
       </Box>
