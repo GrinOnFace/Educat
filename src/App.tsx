@@ -1,4 +1,6 @@
-import { Routes, Route, Navigate } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import { CssBaseline, ThemeProvider } from '@mui/material';
+import { theme } from './theme';
 import LoginPage from './pages/LoginPage';
 import RegisterPage from './pages/RegisterPage';
 import MainPage from './pages/MainPage';
@@ -43,120 +45,134 @@ const StudentRoute = ({ children }: { children: React.ReactNode }) => {
 
 function App() {
   return (
-    <Routes>
-      {/* Public routes */}
-      <Route
-        path='/login'
-        element={
-          <PublicRoute>
-            <LoginPage />
-          </PublicRoute>
-        }
-      />
-      <Route
-        path='/register'
-        element={
-          <PublicRoute>
-            <RegisterPage />
-          </PublicRoute>
-        }
-      />
+    <ThemeProvider theme={theme}>
+      <CssBaseline />
+      <Router>
+        <Routes>
+          {/* Public routes */}
+          <Route
+            path='/login'
+            element={
+              <PublicRoute>
+                <LoginPage />
+              </PublicRoute>
+            }
+          />
+          <Route
+            path='/register'
+            element={
+              <PublicRoute>
+                <RegisterPage />
+              </PublicRoute>
+            }
+          />
 
-      {/* Protected routes */}
-      <Route
-        path='/dashboard'
-        element={
-          <ProtectedRoute>
-            <MainPage />
-          </ProtectedRoute>
-        }
-      />
+          {/* Protected routes */}
+          <Route
+            path='/dashboard'
+            element={
+              <ProtectedRoute>
+                <MainPage />
+              </ProtectedRoute>
+            }
+          />
 
-      <Route
-        path='/schedule'
-        element={
-          <ProtectedRoute>
-            <SchedulePage />
-          </ProtectedRoute>
-        }
-      />
+          <Route
+            path='/schedule'
+            element={
+              <ProtectedRoute>
+                <SchedulePage />
+              </ProtectedRoute>
+            }
+          />
 
-      <Route
-        path='/schedule/day/:day'
-        element={
-          <ProtectedRoute>
-            <SchedulePage />
-          </ProtectedRoute>
-        }
-      />
+          <Route
+            path='/schedule/day/:day'
+            element={
+              <ProtectedRoute>
+                <SchedulePage />
+              </ProtectedRoute>
+            }
+          />
 
-      <Route
-        path='/profile'
-        element={
-          <ProtectedRoute>
-            <ProfilePage />
-          </ProtectedRoute>
-        }
-      />
+          <Route
+            path='/profile'
+            element={
+              <ProtectedRoute>
+                <ProfilePage />
+              </ProtectedRoute>
+            }
+          />
 
-      <Route
-        path='/search'
-        element={
-          <StudentRoute>
-            <TutorSearchPage />
-          </StudentRoute>
-        }
-      />
+          <Route
+            path='/search'
+            element={
+              <StudentRoute>
+                <TutorSearchPage />
+              </StudentRoute>
+            }
+          />
 
-      <Route
-        path='/students'
-        element={
-          <TeacherRoute>
-            <StudentsPage />
-          </TeacherRoute>
-        }
-      />
+          <Route
+            path='/students'
+            element={
+              <TeacherRoute>
+                <StudentsPage />
+              </TeacherRoute>
+            }
+          />
 
-      <Route
-        path='/lessons'
-        element={
-          <TeacherRoute>
-            <LessonsPage />
-          </TeacherRoute>
-        }
-      />
+          <Route
+            path='/lessons'
+            element={
+              <TeacherRoute>
+                <LessonsPage />
+              </TeacherRoute>
+            }
+          />
 
-      <Route
-        path='/lessons/:lessonId'
-        element={
-          <ProtectedRoute>
-            <LessonDetailsPage />
-          </ProtectedRoute>
-        }
-      />
+          <Route
+            path='/lessons/:lessonId'
+            element={
+              <ProtectedRoute>
+                <LessonDetailsPage />
+              </ProtectedRoute>
+            }
+          />
 
-      <Route
-        path='/create-lesson'
-        element={
-          <TeacherRoute>
-            <CreateLessonPage />
-          </TeacherRoute>
-        }
-      />
+          <Route
+            path='/create-lesson'
+            element={
+              <TeacherRoute>
+                <CreateLessonPage />
+              </TeacherRoute>
+            }
+          />
 
-      {/* Root route */}
-      <Route
-        path='/'
-        element={
-          <PublicRoute>
-            <HomePage />
-          </PublicRoute>
-        }
-      />
+          {/* Redirect root to dashboard */}
+          <Route
+            path='/'
+            element={
+              <PublicRoute>
+                <HomePage />
+              </PublicRoute>
+            }
+          />
 
-      {/* Catch all route - redirect to dashboard */}
-      <Route path='*' element={<Navigate to='/dashboard' replace />} />
-    </Routes>
+          <Route
+            path='/dashboard'
+            element={
+              <ProtectedRoute>
+                <MainPage />
+              </ProtectedRoute>
+            }
+          />
+
+          {/* Catch all route - redirect to dashboard */}
+          <Route path='*' element={<Navigate to='/dashboard' replace />} />
+        </Routes>
+      </Router>
+    </ThemeProvider>
   );
 }
 
