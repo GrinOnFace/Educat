@@ -9,10 +9,10 @@ import {
   FormControlLabel,
   IconButton,
   InputAdornment,
-  Link,
   TextField,
   Typography,
 } from '@mui/material';
+import { Link } from 'react-router-dom';
 import { Lock, Person, Visibility, VisibilityOff } from '@mui/icons-material';
 import { PublicLayout, FormContainer } from '../components';
 import { useAuth } from '../hooks/useAuth';
@@ -141,7 +141,7 @@ const LoginPage = () => {
           </Button>
 
           <Box sx={{ mt: 2, textAlign: 'center' }}>
-            <Link href='/register' variant='body2' underline='hover'>
+            <Link to='/register' style={{ color: 'black', textDecoration: 'underline' }}>
               Нет аккаунта? Зарегистрируйтесь
             </Link>
           </Box>
