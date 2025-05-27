@@ -1,5 +1,6 @@
-import { Box, Button, Container, Link, Typography } from '@mui/material';
+import { Box, Button, Container, Typography } from '@mui/material';
 import { PublicLayout } from '../components';
+import { Link } from 'react-router-dom';
 
 const HomePage = () => {
   return (
@@ -32,12 +33,12 @@ const HomePage = () => {
         </Typography>
 
         <Box sx={{ display: 'flex', gap: 2, justifyContent: 'center' }}>
-          <Button component={Link} href='/login' variant='contained' color='primary' size='large'>
+          <Link to='/login' style={{ color: 'black', textDecoration: 'none', padding: '10px 20px', borderRadius: '5px'}}>
             Войти
-          </Button>
-          <Button component={Link} href='/register' variant='outlined' color='primary' size='large'>
+          </Link>
+          <Link to='/register' style={{ color: 'black', textDecoration: 'none', padding: '10px 20px', borderRadius: '5px', backgroundColor: '#ffa500' }}>
             Зарегистрироваться
-          </Button>
+          </Link>
         </Box>
       </Container>
     </PublicLayout>

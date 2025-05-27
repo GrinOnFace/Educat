@@ -1,5 +1,5 @@
 import { Box, Button } from '@mui/material';
-import { useLocation } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import Logo from './Logo';
 
 const PublicHeader = () => {
@@ -21,12 +21,12 @@ const PublicHeader = () => {
       <Logo />
 
       <Box>
-        <Button href='/login' color={isLoginPage ? 'primary' : 'inherit'} sx={{ mr: 2 }}>
+        <Link to='/login' style={{ color: 'black', marginRight: "20px", textDecoration: 'none' }}>
           Войти
-        </Button>
-        <Button href='/register' color={!isLoginPage ? 'primary' : 'inherit'}>
+        </Link>
+        <Link to='/register' style={{ color: 'black', textDecoration: 'none' }}>
           Регистрация
-        </Button>
+        </Link>
       </Box>
     </Box>
   );
