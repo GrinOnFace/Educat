@@ -55,14 +55,15 @@ const getStatusText = (status: string) => {
 };
 
 const formatTime = (dateString: string) => {
-  return new Date(dateString).toLocaleTimeString('ru-RU', {
+  const date = new Date(new Date(dateString).getTime() - 3 * 60 * 60 * 1000);
+  return date.toLocaleTimeString('ru-RU', {
     hour: '2-digit',
     minute: '2-digit',
   });
 };
 
 const getDayOfWeek = (dateString: string): string => {
-  const date = new Date(dateString);
+  const date = new Date(new Date(dateString).getTime() - 3 * 60 * 60 * 1000);
   const days = ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday'];
   return days[date.getDay()];
 };

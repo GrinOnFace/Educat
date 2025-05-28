@@ -13,6 +13,7 @@ import {
   Alert,
   FormHelperText,
   Paper,
+  CircularProgress,
 } from '@mui/material';
 import type { SelectChangeEvent } from '@mui/material';
 import { DateTimePicker } from '@mui/x-date-pickers/DateTimePicker';
@@ -174,9 +175,9 @@ const CreateLessonPage = () => {
   if (loading && !students.length && !subjects.length) {
     return (
       <AppLayout onLogout={handleLogout}>
-        <Container maxWidth='md'>
+        <Container maxWidth='lg'>
           <Box display='flex' justifyContent='center' alignItems='center' minHeight='60vh'>
-            <Typography>Загрузка...</Typography>
+            <CircularProgress />
           </Box>
         </Container>
       </AppLayout>

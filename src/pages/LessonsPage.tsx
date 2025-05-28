@@ -18,6 +18,7 @@ import {
   Chip,
   IconButton,
   Tooltip,
+  CircularProgress,
 } from '@mui/material';
 import {
   Search,
@@ -55,6 +56,9 @@ const LessonsPage = () => {
         setLoading(true);
         const lessonsData = await lessonService.getTeacherLessons(user.id);
         setLessons(lessonsData);
+        console.log(format(new Date(lessonsData[5].startTime), 'dd MMMM yyyy, HH:mm', {
+          locale: ru,
+        }));
       } catch (err) {
         console.error('Error fetching lessons:', err);
         setError('Ошибка при загрузке уроков');
@@ -118,7 +122,7 @@ const LessonsPage = () => {
       <AppLayout>
         <Container maxWidth='lg'>
           <Box display='flex' justifyContent='center' alignItems='center' minHeight='60vh'>
-            <Typography>Загрузка...</Typography>
+            <CircularProgress />
           </Box>
         </Container>
       </AppLayout>
@@ -218,7 +222,7 @@ const LessonsPage = () => {
                             {lesson.subjectName}
                           </Typography>
                           <Typography color='text.secondary'>
-                            {format(new Date(lesson.startTime), 'dd MMMM yyyy, HH:mm', {
+                            {format(new Date(new Date(lesson.startTime).getTime() - 3 * 60 * 60 * 1000), 'dd MMMM yyyy, HH:mm', {
                               locale: ru,
                             })}
                           </Typography>

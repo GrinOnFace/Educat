@@ -204,7 +204,7 @@ const LessonDetailsPage = () => {
                 <Box sx={{ pl: 5 }}>
                   <Typography variant='body1' color='text.secondary' gutterBottom>
                     Начало:{' '}
-                    {new Date(lesson.startTime).toLocaleString('ru-RU', {
+                    {new Date(new Date(lesson.startTime).getTime() - 3 * 60 * 60 * 1000).toLocaleString('ru-RU', {
                       day: '2-digit',
                       month: '2-digit',
                       year: 'numeric',
@@ -214,7 +214,7 @@ const LessonDetailsPage = () => {
                   </Typography>
                   <Typography variant='body1' color='text.secondary'>
                     Окончание:{' '}
-                    {new Date(lesson.endTime).toLocaleString('ru-RU', {
+                    {new Date(new Date(lesson.endTime).getTime() - 3 * 60 * 60 * 1000).toLocaleString('ru-RU', {
                       day: '2-digit',
                       month: '2-digit',
                       year: 'numeric',
@@ -281,7 +281,7 @@ const LessonDetailsPage = () => {
                 />
               </Box>
 
-              {isStudent && (
+              {isStudent && lesson.status.toLowerCase() === 'completed' && (
                 <>
                   <Divider sx={{ my: 4 }} />
                   <Box>

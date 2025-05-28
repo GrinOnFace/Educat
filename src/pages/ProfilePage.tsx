@@ -219,14 +219,6 @@ const ProfilePage = () => {
           <ListItem>
             <ListItemText primary='Предстоящие уроки' secondary={teacherStats.upcomingLessons} />
           </ListItem>
-          <ListItem>
-            <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
-              <Rating value={teacherStats.rating} readOnly precision={0.1} />
-              <Typography variant='body2' color='text.secondary'>
-                ({teacherStats.reviewsCount} отзывов)
-              </Typography>
-            </Box>
-          </ListItem>
         </List>
         {teacherStats.ratingDistribution &&
           Object.keys(teacherStats.ratingDistribution).length > 0 && (
@@ -400,10 +392,6 @@ const ProfilePage = () => {
                 <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
                   <Typography component='span' variant='subtitle1'>
                     {teacher.fullName}
-                  </Typography>
-                  <Rating value={teacher.rating} readOnly size='small' />
-                  <Typography component='span' color='text.secondary' variant='body2'>
-                    ({teacher.reviewsCount} отзывов)
                   </Typography>
                 </Box>
               }

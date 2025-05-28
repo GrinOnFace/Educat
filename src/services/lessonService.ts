@@ -80,6 +80,7 @@ export interface LessonAttachment {
 export const lessonService = {
   createLesson: async (lesson: CreateLessonRequest): Promise<Lesson> => {
     const response = await api.post('/Teacher/create-lesson', lesson);
+    console.log(response.data);
     return response.data;
   },
 
